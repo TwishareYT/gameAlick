@@ -42,6 +42,7 @@ struct  Character
 	int ch_x{ 0 }; //вниз
 	int ch_y{ 0 }; //вправо
 	move_var ch_move;
+
 };
 Character character;
 
@@ -168,7 +169,21 @@ void DrawMap(char skin, string map_name, move_var ch_move)
 
 void Input()
 {
+	if (_kbhit() == true)
+	{
+		switch (_getch())
+		{
 
+		case 'a':character.ch_move = LEFT; break;
+		case 'd':character.ch_move = RIGHT; break;
+		case 'w':character.ch_move = UP; break;
+		case 's':character.ch_move = DOWN; break;
+		case 'g':gameOver=true; break;
+		default:
+			break;
+		}
+
+	}
 }
 
 void Logic()
