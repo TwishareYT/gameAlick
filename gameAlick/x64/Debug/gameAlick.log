@@ -1,5 +1,5 @@
 ﻿  gameAlick.cpp
-C:\Users\traek_zdykp6v\OneDrive\Рабочий стол\Kasimov gameAlick\gameAlick-master\gameAlick\gameAlick.cpp(145,35): warning C4267:  =: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\traek_zdykp6v\OneDrive\Рабочий стол\Kasimov gameAlick\gameAlick-master\gameAlick\gameAlick.cpp(146,41): warning C4267:  =: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\traek_zdykp6v\OneDrive\Рабочий стол\Kasimov gameAlick\gameAlick-master\gameAlick\gameAlick.cpp(172,22): warning C4805:  ==: небезопасное смешение типа "int" и типа "bool" в операции
-  gameAlick.vcxproj -> C:\Users\traek_zdykp6v\OneDrive\Рабочий стол\Kasimov gameAlick\gameAlick-master\gameAlick\x64\Debug\gameAlick.exe
+C:\Users\traek_xxfu3bj\Documents\gameAlick-master\gameAlick-master\gameAlick\gameAlick.cpp(145,35): warning C4267:  =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\traek_xxfu3bj\Documents\gameAlick-master\gameAlick-master\gameAlick\gameAlick.cpp(146,41): warning C4267:  =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\traek_xxfu3bj\Documents\gameAlick-master\gameAlick-master\gameAlick\gameAlick.cpp(172,22): warning C4805:  ==: небезопасное смешение типа "int" и типа "bool" в операции
+  gameAlick.vcxproj -> C:\Users\traek_xxfu3bj\Documents\gameAlick-master\gameAlick-master\gameAlick\x64\Debug\gameAlick.exe
