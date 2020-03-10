@@ -39,8 +39,8 @@ struct  Character
 	double _coins{ 0.0 }; //деньги
 	double _heals{ 100.0 }; //количество здоровья
 	double _mana{ 100.0 }; //количество маны(выносливости)
-	int ch_x{ 0 }; //вниз
-	int ch_y{ 0 }; //вправо
+	int ch_x{ 5 }; //вниз
+	int ch_y{ 5 }; //вправо
 	move_var ch_move;
 
 };
@@ -116,8 +116,8 @@ void Setup()
 	//и записываем эту строку в поле _autobography структуры Character
 	cout << "Biography:" << character._autobiography << endl;
 	character.ch_move = STOP; //на старт игры не движимся 
-	character.ch_x = 1; // стоим в точке с координатами (2,2). ch_x - номер строки, ch_y - номер элемента в строке, порядковый номер которой ch_x
-	character.ch_y = 1;
+	character.ch_x = 5; // стоим в точке с координатами (2,2). ch_x - номер строки, ch_y - номер элемента в строке, порядковый номер которой ch_x
+	character.ch_y = 5;
 	DrawMap(character.ch_skin, current_map_name, character.ch_move); //отрисовываем карту
 	//cout << "Character: " << character._name << " Race: " << character._race << " Class: " <<character._class<< " Gender: " << character._gender << endl;
 }
@@ -154,7 +154,7 @@ void DrawMap(char skin, string map_name, move_var ch_move)
 			//находим координаты нашего персонажа (на старт игры - 2 строка, 2 элемент этой строки)
 			if ((i == character.ch_x) && (j == character.ch_y))
 			{
-
+				current_draw_map[i][j] = character.ch_skin;
 			}
 		}
 		//отрисовывем в консоль текущую строку вектора
@@ -181,6 +181,8 @@ void Input()
 		case 'g':gameOver=true; break;
 		default:
 			break;
+
+
 		}
 
 	}
@@ -188,5 +190,57 @@ void Input()
 
 void Logic()
 {
+	switch (character.ch_move)
+	{
+	case UP:
+		if (current_draw_map[character.ch_x - 1][character.ch_y] == ' ')
+		{
+			character.ch_x--;
+			current_draw_map[character.ch_x + 1][character.ch_y] = ' ';
+		}
+		DrawMap(character.ch_skin, current_map_name, character.ch_move); 
+		break;
+	case DOWN: 
+		if (current_draw_map[character.ch_x + 1][character.ch_y] == ' ')
+		{
+			character.ch_x++;
+			current_draw_map[character.ch_x - 1][character.ch_y] = ' ';
+		}
+		DrawMap(character.ch_skin, current_map_name, character.ch_move);
+		break;
+	case RIGHT:
+		if (current_draw_map[character.ch_x][character.ch_y + 1] == ' ')
+		{
+			character.ch_y++;
+			current_draw_map[character.ch_x][character.ch_y - 1] = ' ';
+		}
+		if (current_draw_map[character.ch_x][character.ch_y + 1] == '#')
+		{
+			character.ch_y = 36;
+			character.ch_x = 4;
+		}
+		
+		DrawMap(character.ch_skin, current_map_name, character.ch_move);
+		break;
+	case LEFT:
+		if (current_draw_map[character.ch_x][character.ch_y - 1] == ' ')
+		{
+			character.ch_y--;
+			current_draw_map[character.ch_x][character.ch_y + 1] = ' ';
+		}
+		DrawMap(character.ch_skin, current_map_name, character.ch_move);
+		break;
+
+
+
+
+
+
+	default:
+		break;
+	}
+	character.ch_move = STOP;
+	
+
 
 }
